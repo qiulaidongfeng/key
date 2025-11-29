@@ -86,7 +86,7 @@ func Encrypt(v string) string {
 // 如果解密失败，返回空字符串
 func Decrypt(v string) string {
 	ev, err := gcm.Open(nil, nil, unsafe.Slice(unsafe.StringData(v), len(v)), nil)
-	if err != nil {
+	if err != nil && gcm2 != nil {
 		ev, _ := gcm2.Open(nil, nil, unsafe.Slice(unsafe.StringData(v), len(v)), nil)
 		return unsafe.String(unsafe.SliceData(ev), len(ev))
 	}

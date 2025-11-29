@@ -26,6 +26,8 @@ func TestOneKey(t *testing.T) {
 	if r1 == r3 {
 		t.Fatalf("%v %v", r1, r3)
 	}
+
+	key.Decrypt("")
 }
 
 func TestTwoKey(t *testing.T) {
